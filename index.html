@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Jellyshelf</title>
+  </head>
+
+  <body>
+    <canvas
+      id="rive-canvas"
+      style="
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+      "
+    ></canvas>
+
+    <script type="module">
+      import { Rive, Fit, Alignment } from 'https://unpkg.com/@rive-app/canvas@2.31.2?module';
+
+      const canvas = document.getElementById('rive-canvas');
+
+      const riveInstance = new Rive({
+        src: 'jellyshelf.riv',             // Make sure this is in the same folder
+        artboard: 'Dashboard',              // Update as needed
+        stateMachines: 'State Machine 1',   // Update as needed
+        canvas: canvas,
+        autoplay: true,
+        autoBind: true,
+
+        fit: Fit.layout,                    // Key: matches layout to canvas
+        alignment: Alignment.center,
+
+        onLoad: () => {
+          resizeCanvas();
+        },
+      });
+
+      function resizeCanvas() {
+        canvas.width = canvas.clientWidth * window.devicePixelRatio;
+        canvas.height = canvas.clientHeight * window.devicePixelRatio;
+        riveInstance.resizeDrawingSurfaceToCanvas();
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      window.matchMedia(`(resolution:${window.devicePixelRatio}dppx)`)
+            .addEventListener('change', resizeCanvas);
+    </script>
+  </body>
+</html>
