@@ -1,84 +1,36 @@
-<!DOCTYPE html>
+```<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jelly Shelf</title>
-<style>
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-}
-</style>
-</head>
-
-
-
-
-<body>
-
-
-  <canvas
-  style="
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: black;
-  "
-  id="rive-canvas"
-></canvas>
-
-
-
-
-<script src="https://unpkg.com/@rive-app/webgl2"></script>
-<script>
-// The layout of the graphic will adhere to
-    const layout = new rive.Layout({
-      fit: rive.Fit.Layout,
-      layoutScaleFactor: 1, // when using `Fit.Layout`. This allows you to resize the layout as needed.
-    });
-
-
-    // ---------------------------------
-    // HTML Canvas element to render to
-    const riveCanvas = document.getElementById("rive-canvas");
-
-
-    function computeSize() {
-      riveInstance.resizeDrawingSurfaceToCanvas();
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jelly Shelf/title>
+  <meta name="description" content="A game by Shelflife" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
     }
-
-
-    // Subscribe to window size changes and update call `resizeDrawingSurfaceToCanvas`
-    window.onresize = computeSize;
-
-
-    // Subscribe to devicePixelRatio changes and call `resizeDrawingSurfaceToCanvas`
-    window
-      .matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`)
-      .addEventListener("change", computeSize);
-
-
-
-
-    const riveInstance = new rive.Rive({
-      src: "jellyshelf.riv",
-      // Be sure to specify the correct state machine (or animation) name
-      stateMachines: "State Machine 1", // Name of the State Machine to play
-      canvas: riveCanvas,
-      artboard: "Dashboard",
-      layout: layout, // This is optional. Provides additional layout control.
-      autoplay: true,
-      autoBind: true,
-      onLoad: () => {
-        // Prevent a blurry canvas by using the device pixel ratio
-        riveInstance.resizeDrawingSurfaceToCanvas();
-      },
-    });
-
-
-</script>
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <iframe 
+    src="https://itch.io/embed-upload/14793764?color=333333"
+    allow="fullscreen; gamepad; xr-spatial-tracking; autoplay; clipboard-read; clipboard-write"
+    loading="lazy"
+    referrerpolicy="no-referrer"
+    title="Chery Car Game">
+      <a href="https://studiobo.itch.io/jellyshelf">Play Jelly Shelf</a>
+  </iframe>
 </body>
-</html>
+</html>```
