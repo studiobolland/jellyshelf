@@ -3,7 +3,7 @@ name: Deploy static content to Pages
 # This dictates WHICH branch triggers the deployment
 on:
   push:
-    branches: ["main"]
+    branches: ["game"]
 
 # Sets permissions granted to the GITHUB_TOKEN
 permissions:
